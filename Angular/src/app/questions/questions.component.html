@@ -1,0 +1,82 @@
+<mat-toolbar color="accent"> Epita  Quiz</mat-toolbar>
+
+<mat-card color="warn">
+    <mat-card-title>
+        Java Quiz
+    </mat-card-title>
+    <mat-card-content>
+        <form >
+            <mat-form-field>
+                
+                <input matInput placeholder="Questions">
+            
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                
+                    <input matInput placeholder="Option A">
+                
+                </mat-form-field>
+                <br>
+            <mat-form-field>
+                
+                <input matInput placeholder="Option B">
+                    
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                
+                    <input matInput placeholder="Option C">
+                        
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                
+                        <input matInput placeholder="Option D">
+                            
+                    </mat-form-field>
+                    <br>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button type="submit" color ="warn">SUBMIT </button>
+    </mat-card-actions> 
+    <div>
+            <table mat-table [dataSource]="dataSource" style="margin-bottom: 10px; color: black;" >
+
+                    <!--- Note that these columns can be defined in any order.
+                          The actual rendered columns are set as a property on the row definition" -->
+                  
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="questionId">
+                      <th mat-header-cell *matHeaderCellDef> No. </th>
+                      <td mat-cell *matCellDef="let element"> {{element.questionId}} </td>
+                    </ng-container>
+                  
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="questionname">
+                      <th mat-header-cell *matHeaderCellDef> Name </th>
+                      <td mat-cell *matCellDef="let element"> {{element.questionname}} </td>
+                    </ng-container>
+                  
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="questionAnswer">
+                      <th mat-header-cell *matHeaderCellDef> Weight </th>
+                      <td mat-cell *matCellDef="let element"> {{element.questionAnswer}} </td>
+                    </ng-container>
+                  
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="questionOption">
+                      <th mat-header-cell *matHeaderCellDef> Symbol </th>
+                      <td mat-cell *matCellDef="let element"> {{element.questionOption}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="options">
+                            <th mat-header-cell *matHeaderCellDef> Symbol </th>
+                            <td mat-cell *matCellDef="let element"> <button>save</button> </td>
+                          </ng-container>
+                  
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                  </table>
+    </div>
+</mat-card>
